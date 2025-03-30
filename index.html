@@ -35,9 +35,52 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 
 <script>
-var docMod = document.lastModified; // loads last modified time stamp into docMod variable
-alert("This file last modified " + docMod); // generates alert box with time stamp. If annoying, comment out this entire line.
-console.log("This file last modified " + docMod); // generates message in javaScript console (found in developers tools) with time stamp. 
+	var docMod = document.lastModified; // loads last modified time stamp into docMod variable
+	alert("This file last modified " + docMod); // generates alert box with time stamp. If annoying, comment out this entire line.
+	console.log("This file last modified " + docMod); // generates message in javaScript console (found in developers tools) with time stamp. 
+	// Gives information on website update status to help troubleshoot
+
+	function resizeCanvas() {
+            const canvas = document.getElementById("myCanvas");
+            canvas.width = window.innerWidth * 0.9;
+            canvas.height = window.innerHeight * 0.6;
+        }
+	// Keeps Canvas dimensions fixed in relation to device to prevent improper scaling across devices
+	
+        function drawRectangle() {
+            const ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.fillStyle = "blue";
+            ctx.fillRect(50, 50, 150, 100);
+        }
+	// Draws rectangle on canvas using Rectangle function and canvas variable constant in blue
+
+        function drawText() {
+            const ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.font = "24px Arial";
+            ctx.fillStyle = "red";
+            ctx.fillText("DIYDiagnostics", 50, 200);
+        }
+	// adds text element to canvas in 24pt Arial font, red color, with text of DIYDiagnostics
+
+        function drawImage() {
+            const ctx = document.getElementById("myCanvas").getContext("2d");
+            const img = new Image();
+            img.src = "https://easydrawingguides.com/wp-content/uploads/2019/06/how-to-draw-dna-featured-image-1200.png";
+            img.onload = function() {
+                ctx.drawImage(img, 100, 250, 150, 150);
+            };
+        }
+	// Draws image of DNA that loads instantly using the .onload method
+
+        function clearCanvas() {
+            const canvas = document.getElementById("myCanvas");
+            const ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+        window.onload = resizeCanvas;
+	// Clears canvas by recalling constant
+
+	
 </script>
 
 
